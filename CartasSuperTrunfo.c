@@ -1,9 +1,9 @@
 #include <stdio.h>
 int main(){
-  char estado1[1];
-  char estado2[1];
-  char codigo1[3];
-  char codigo2[3];
+  char estado1[5];
+  char estado2[5];
+  char codigo1[8];
+  char codigo2[8];
   char nome1[40];
   char nome2[40];
   int populacao1, populacao2;
