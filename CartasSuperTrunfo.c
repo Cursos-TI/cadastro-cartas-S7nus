@@ -10,6 +10,8 @@ int main(){
   float area1, area2;
   float pib1, pib2;
   int pontotur1, pontotur2;
+  float densidade1, densidade2;
+  float pibpercapita1, pibpercapita2;
 
   printf ("Bem vindo ao Super Trunfo de Estados Brasileiros! \n");
   printf ("Aqui você poderá criar suas próprias cartas e jogar com seus amigos! \n");
@@ -63,6 +65,7 @@ int main(){
   printf ("Escolha a pontuação turística do estado (de 0 a 100): \n");
   scanf ("%d", &pontotur2);
 
+
   printf ("Suas cartas foram criadas! \n");
 
   printf ("Carta 1: \n");
@@ -73,6 +76,8 @@ int main(){
   printf ("Área: %.2f km² \n", area1);
   printf ("PIB: R$ %.2f \n", pib1);
   printf ("Pontuação Turística: %d \n", pontotur1);
+  printf ("Densidade populacional: %.2f hab/km² \n", populacao1/area1);
+  printf ("Pib per capita: R$ %.2f \n", pib1/populacao1);
 
   printf ("Carta 2: \n");
   printf ("Estado: %s \n", estado2);
@@ -82,5 +87,10 @@ int main(){
   printf ("Área: %.2f km² \n", area2);
   printf ("PIB: R$ %.2f \n", pib2);
   printf ("Pontuação Turística: %d \n", pontotur2);
+  printf ("Densidade populacional: %.2f hab/km² \n", populacao2/area2);
+  printf ("Pib per capita: R$ %.2f \n", pib2/populacao2);
+  
+
+
   return 0;
 }
