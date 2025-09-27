@@ -1,96 +1,78 @@
 #include <stdio.h>
+
 int main(){
-  char estado1[5];
-  char estado2[5];
-  char codigo1[8];
-  char codigo2[8];
-  char nome1[40];
-  char nome2[40];
-  int populacao1, populacao2;
-  float area1, area2;
-  float pib1, pib2;
-  int pontotur1, pontotur2;
-  float densidade1, densidade2;
-  float pibpercapita1, pibpercapita2;
+    char estado1[5], estado2[5];
+    char codigo1[8], codigo2[8];
+    char nome1[40], nome2[40];
+    unsigned long int populacao1, populacao2;
+    float area1, area2;
+    float pib1, pib2;
+    int pontotur1, pontotur2;
+    float densidade1, densidade2;
+    float pibpercapita1, pibpercapita2;
+    float superpoder1, superpoder2;
 
-  printf ("Bem vindo ao Super Trunfo de Estados Brasileiros! \n");
-  printf ("Aqui você poderá criar suas próprias cartas e jogar com seus amigos! \n");
-  printf ("Vamos começar! \n");
-  printf ("Vamos cadastrar as cartas! \n");
-  printf ("Primeira Carta: \n");
-  printf ("Escolha uma letra de A a H: \n");
-  scanf ("%s", estado1);
+    printf ("Bem vindo ao Super Trunfo de Estados Brasileiros!\n");
 
-  printf ("Escolha um codigo para sua carta! : \n");
-  printf ("OBS: A letra do estado seguida de um número de 01 a 04 (ex: A01, B03) \n");
-  scanf ("%s", codigo1);
+    // Primeira carta
+    printf("Primeira Carta:\n");
+    printf("Escolha uma letra de A a H: ");
+    scanf("%s", estado1);
+    printf("Escolha um código (ex: A01): ");
+    scanf("%s", codigo1);
+    printf("Escolha o nome da cidade: ");
+    scanf(" %[^\n]s", nome1);
+    printf("Escolha a população do estado: ");
+    scanf("%lu", &populacao1);
+    printf("Escolha a área do estado (km²): ");
+    scanf("%f", &area1);
+    printf("Escolha o PIB do estado (R$): ");
+    scanf("%f", &pib1);
+    printf("Escolha a pontuação turística (0-100): ");
+    scanf("%d", &pontotur1);
 
-  printf ("Escolha o nome da cidade para sua Carta!: \n");
-  scanf ("%s", nome1);
+    // Segunda carta
+    printf("\nSegunda Carta:\n");
+    printf("Escolha uma letra de A a H: ");
+    scanf("%s", estado2);
+    printf("Escolha um código (ex: B02): ");
+    scanf("%s", codigo2);
+    printf("Escolha o nome da cidade: ");
+    scanf(" %[^\n]s", nome2);
+    printf("Escolha a população do estado: ");
+    scanf("%lu", &populacao2);
+    printf("Escolha a área do estado (km²): ");
+    scanf("%f", &area2);
+    printf("Escolha o PIB do estado (R$): ");
+    scanf("%f", &pib2);
+    printf("Escolha a pontuação turística (0-100): ");
+    scanf("%d", &pontotur2);
 
-  printf ("Escolha a população do estado: \n");
-  scanf ("%d", &populacao1); 
+    // Cálculos
+    densidade1 = (float)populacao1 / area1;
+    pibpercapita1 = pib1 / (float)populacao1;
+    superpoder1 = populacao1 + area1 + pib1 + pontotur1 + pibpercapita1 + (1.0f / densidade1);
 
-  printf ("Escolha a área do estado (em km²): \n");
-  scanf ("%f", &area1);
+    densidade2 = (float)populacao2 / area2;
+    pibpercapita2 = pib2 / (float)populacao2;
+    superpoder2 = populacao2 + area2 + pib2 + pontotur2 + pibpercapita2 + (1.0f / densidade2);
 
-  printf ("Escolha o PIB do estado (em R$): \n");
-  scanf ("%f", &pib1);
+    // Exibição das cartas
+    printf("\nCarta 1:\nEstado: %s\nCódigo: %s\nNome: %s\nPopulação: %lu\nÁrea: %.2f\nPIB: %.2f\nPontos Turísticos: %d\nDensidade: %.2f\nPIB per capita: %.2f\nSuper Poder: %.2f\n",
+           estado1, codigo1, nome1, populacao1, area1, pib1, pontotur1, densidade1, pibpercapita1, superpoder1);
 
-  printf ("Escolha a pontuação turística do estado (de 0 a 100): \n");
-  scanf ("%d", &pontotur1);
+    printf("\nCarta 2:\nEstado: %s\nCódigo: %s\nNome: %s\nPopulação: %lu\nÁrea: %.2f\nPIB: %.2f\nPontos Turísticos: %d\nDensidade: %.2f\nPIB per capita: %.2f\nSuper Poder: %.2f\n",
+           estado2, codigo2, nome2, populacao2, area2, pib2, pontotur2, densidade2, pibpercapita2, superpoder2);
 
-  printf ("Primeira carta criada com sucesso! \n");
+    // Comparações
+    printf("\n=== RESULTADOS DAS COMPARAÇÕES ===\n");
+    printf("População: %d\n", (populacao1 > populacao2) ? 1 : 0);
+    printf("Área: %d\n", (area1 > area2) ? 1 : 0);
+    printf("PIB: %d\n", (pib1 > pib2) ? 1 : 0);
+    printf("Pontos Turísticos: %d\n", (pontotur1 > pontotur2) ? 1 : 0);
+    printf("PIB per capita: %d\n", (pibpercapita1 > pibpercapita2) ? 1 : 0);
+    printf("Densidade populacional: %d\n", (densidade1 < densidade2) ? 1 : 0);
+    printf("Super Poder: %d\n", (superpoder1 > superpoder2) ? 1 : 0);
 
-  printf ("Segunda Carta: \n");
-  printf ("Escolha uma letra de A a H: \n");
-  scanf ("%s", estado2);
-
-  printf ("Escolha um codigo para sua carta! : \n");
-  printf ("OBS: A letra do estado seguida de um número de 01 a 04 (ex: A01, B03) \n");
-  scanf ("%s", codigo2);
-
-  printf ("Escolha o nome da cidade para sua Carta!: \n");
-  scanf ("%s", nome2);
-
-  printf ("Escolha a população do estado: \n");
-  scanf ("%d", &populacao2);
-
-  printf ("Escolha a área do estado (em km²): \n");
-  scanf ("%f", &area2);
-
-  printf ("Escolha o PIB do estado (em R$): \n");
-  scanf ("%f", &pib2);
-
-  printf ("Escolha a pontuação turística do estado (de 0 a 100): \n");
-  scanf ("%d", &pontotur2);
-
-
-  printf ("Suas cartas foram criadas! \n");
-
-  printf ("Carta 1: \n");
-  printf ("Estado: %s \n", estado1);
-  printf ("Código: %s \n", codigo1);
-  printf ("Nome: %s \n", nome1);
-  printf ("População: %d \n", populacao1);
-  printf ("Área: %.2f km² \n", area1);
-  printf ("PIB: R$ %.2f \n", pib1);
-  printf ("Pontuação Turística: %d \n", pontotur1);
-  printf ("Densidade populacional: %.2f hab/km² \n", populacao1/area1);
-  printf ("Pib per capita: R$ %.2f \n", pib1/populacao1);
-
-  printf ("Carta 2: \n");
-  printf ("Estado: %s \n", estado2);
-  printf ("Código: %s \n", codigo2);
-  printf ("Nome: %s \n", nome2);
-  printf ("População: %d \n", populacao2);
-  printf ("Área: %.2f km² \n", area2);
-  printf ("PIB: R$ %.2f \n", pib2);
-  printf ("Pontuação Turística: %d \n", pontotur2);
-  printf ("Densidade populacional: %.2f hab/km² \n", populacao2/area2);
-  printf ("Pib per capita: R$ %.2f \n", pib2/populacao2);
-  
-
-
-  return 0;
+    return 0;
 }
