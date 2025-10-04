@@ -64,15 +64,23 @@ int main(){
     printf("\nCarta 2:\nEstado: %s\nCódigo: %s\nNome: %s\nPopulação: %lu\nÁrea: %.2f\nPIB: %.2f\nPontos Turísticos: %d\nDensidade: %.2f\nPIB per capita: %.2f\nSuper Poder: %.2f\n",
            estado2, codigo2, nome2, populacao2, area2, pib2, pontotur2, densidade2, pibpercapita2, superpoder2);
 
-    // Comparações
-    printf("\n=== RESULTADOS DAS COMPARAÇÕES ===\n");
-    printf("População: %d\n", (populacao1 > populacao2) ? 1 : 0);
-    printf("Área: %d\n", (area1 > area2) ? 1 : 0);
-    printf("PIB: %d\n", (pib1 > pib2) ? 1 : 0);
-    printf("Pontos Turísticos: %d\n", (pontotur1 > pontotur2) ? 1 : 0);
-    printf("PIB per capita: %d\n", (pibpercapita1 > pibpercapita2) ? 1 : 0);
-    printf("Densidade populacional: %d\n", (densidade1 < densidade2) ? 1 : 0);
-    printf("Super Poder: %d\n", (superpoder1 > superpoder2) ? 1 : 0);
+
+    printf("\nAgora vamos exibir a carta vencedora com base no PIB!\n");
+    printf("Pib da Carta 1: %.2f\n", pib1);
+    printf("Pib da Carta 2: %.2f\n", pib2);       
+    // Carta vencedora
+
+    if (pib1 >pib2){
+        printf("\nA carta vencedora é a Carta 1: %s com Pib: %.2f\n", nome1, pib1);
+    } else if (pib2 > pib1){
+        printf("\nA carta vencedora é a Carta 2: %s com Pib: %.2f\n", nome2, pib2);
+    } else if (pib1 == pib2){
+        printf("\nEmpate! Ambas as cartas têm o mesmo PIB.\n");
+    }
+
+    
+
+    
 
     return 0;
 }
